@@ -3,9 +3,42 @@
   <head>
     <meta charset="utf-8" />
     <title>reorder example</title>
+    <style>
+      #reorderable {
+        list-style: none;
+      }
+
+      #reorderable li {
+        padding: 5px;
+        background: #3498db;
+        margin: 10px;
+        cursor: move;
+      }
+
+      .reorder-dragging {
+        /*display: none;*/
+      }
+
+      .reorder-placeholder {
+        opacity: .5;
+      }
+    </style>
   </head>
   <body>
 
+    <ul id="reorderable">
+      <li draggable="true">Item 1</li>
+      <li draggable="true">Item 2</li>
+      <li draggable="true">Item 3</li>
+      <li draggable="true">Item 4</li>
+      <li draggable="true">Item 5</li>
+    </ul>
+
+    <script src="../components/jquery/jquery.js"></script>
+    <script src="../components/fidel/dist/fidel.js"></script>
     <script src="../dist/reorder.js"></script>
+    <script>
+      $('#reorderable').reorder();
+    </script>
   </body>
 </html>
