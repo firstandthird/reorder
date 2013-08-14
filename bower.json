@@ -1,0 +1,15 @@
+{
+  "name": "reorder",
+  "description": "A drag and drop to reorder library",
+  "version": "0.1.0",
+  "homepage": "http://github.com/jgallen23/reorder",
+  "license": "MIT",
+  "copyright": "Greg Allen",
+  "main": "dist/fidel.reorder.js",
+  "dependencies": {
+    "fidel": "2.*"
+  },
+  "devDependencies": {
+    "assert": "*"
+  }
+}
