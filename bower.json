@@ -7,8 +7,7 @@
   "copyright": "Greg Allen",
   "main": "dist/fidel.reorder.js",
   "dependencies": {
-    "fidel": "2.*",
-    "jquery.simulate": "https://raw.github.com/jquery/jquery-ui/master/tests/jquery.simulate.js"
+    "fidel": "2.*"
   },
   "devDependencies": {
     "assert": "*"
