@@ -11,10 +11,20 @@ function simulateDrag(el, dropIndex) {
   });
 
   el.reorder('onDragOver', {
-    target: el.find('li').eq(dropIndex - 1)
+    target: el.find('li').eq(dropIndex - 1),
+    originalEvent: {
+      pageY: el.find('li').eq(dropIndex -1).offset().top
+    }
   });
 
-  el.reorder('onDragDrop', {});
+  console.log(el.find('li').eq(dropIndex -1).offset().top);
+
+  el.reorder('onDragDrop', {
+    target: el.find('li').eq(dropIndex - 1),
+    originalEvent: {
+      pageY: el.find('li').eq(dropIndex -1).offset().top
+    }
+  });
 
   el.reorder('onDragEnd', {});
 }
