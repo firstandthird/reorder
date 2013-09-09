@@ -1,4 +1,10 @@
 
+0.0.3 / 2013-09-08 
+==================
+
+  * Merge branch 'feature/better-drag-display'
+  * Improved dragging display.
+
 0.0.2 / 2013-08-19 
 ==================
 

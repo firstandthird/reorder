@@ -1,6 +1,6 @@
 /*!
  * reorder - A drag and drop to reorder library
- * v0.1.0
+ * v0.0.3
  * http://github.com/jgallen23/reorder
  * copyright Greg Allen 2013
  * MIT License
@@ -219,7 +219,7 @@
 
     attachEvents: function() {
       this.el.on('dragstart', '[draggable]', this.proxy(this.onDrag));
-      this.el.on('dragenter', '[draggable]', this.proxy(this.onDragOver));
+      this.el.on('dragenter dragover', '[draggable]', this.proxy(this.onDragOver));
       this.el.on('dragend', '[draggable]', this.proxy(this.onDragDrop));
       this.el.on('dragend', '[draggable]', this.proxy(this.onDragEnd));
     },
@@ -239,35 +239,41 @@
     },
 
     onDragOver: function(e) {
+      var event = e.originalEvent;
       var target = $(e.target);
       var tempPosition = 'Before';
 
       if(this.dragEl.is(target)) {
         this.clonedEl.remove();
+        this.dragEl.show();
         return;
+      } else {
+        this.dragEl.hide();
       }
 
-      if(target.index() > this.dragIndex) {
-        tempPosition = 'After';
+      if(((event.pageY - target.offset().top)) > target.outerHeight() / 2) {
+         tempPosition = 'After';
       }
-
-      this.newIndex = target;
 
       this.clonedEl['insert' + tempPosition](target).addClass(this.placeholderClass);
       this.dragEl.addClass(this.draggingClass);
+
+      this.newIndex = this.clonedEl;
       
       this.emit('dragover', [e]);
     },
 
     onDragDrop: function(e) {
       if(this.newIndex !== null) {
+        var event = e.originalEvent;
         var tempPosition = 'Before';
+        var target = $(e.target);
         
-        if(this.newIndex > this.dragIndex) {
+        if(((event.pageY - target.offset().top)) > target.outerHeight() / 2) {
           tempPosition = 'After';
         }
 
-        this.dragEl['insert' + tempPosition](this.newIndex);
+        this.dragEl['insert' + tempPosition](this.newIndex).show();
       }
 
       this.emit('dragdrop', [e]);

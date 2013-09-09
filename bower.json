@@ -1,7 +1,7 @@
 {
   "name": "reorder",
   "description": "A drag and drop to reorder library",
-  "version": "0.1.0",
+  "version": "0.0.3",
   "homepage": "http://github.com/jgallen23/reorder",
   "license": "MIT",
   "copyright": "Greg Allen",
